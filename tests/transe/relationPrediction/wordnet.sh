@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python main.py --get_2hop True | tee wordnet_out.txt
