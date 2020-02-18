@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /scratch/cse/dual/cs5150286/col868/tests/distmult/
+cd /scratch/cse/dual/cs5150286/col868/
 
 mkdir checkpoints
 

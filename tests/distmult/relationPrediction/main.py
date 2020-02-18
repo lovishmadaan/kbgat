@@ -166,7 +166,7 @@ def batch_gat_loss(gat_loss_func, train_indices, entity_embed, relation_embed):
 
     y = -torch.ones(int(args.valid_invalid_ratio_gat) * len_pos_triples).cuda()
 
-    loss = gat_loss_func(pos_norm_distmult, neg_norm_distmult, y)
+    loss = gat_loss_func(-pos_norm_distmult, -neg_norm_distmult, y)
     return loss
 
 
