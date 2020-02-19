@@ -10,6 +10,10 @@ Direct reproduction of baselines is present in the `baseline` folder on Freebase
 
 ### Tests
 
+* **Using only GAT trained model to evaluate the results (without ConvKB)**
+
+    Results present in folder  `baseline/` - file is `test_gat.py` and script is `gatonly.sh`
+
 * **DISTMULT scoring function instead of TransE**
 
     Results present in folder `tests/distmult/`
