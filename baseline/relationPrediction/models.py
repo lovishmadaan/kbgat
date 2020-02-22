@@ -155,6 +155,16 @@ class SpKBGATModified(nn.Module):
 
         return out_entity_1, out_relation_1
 
+    def batch_test(self, batch_inputs):
+        # conv_input = torch.cat((self.final_entity_embeddings[batch_inputs[:, 0], :].unsqueeze(1), self.final_relation_embeddings[
+        #     batch_inputs[:, 1]].unsqueeze(1), self.final_entity_embeddings[batch_inputs[:, 2], :].unsqueeze(1)), dim=1)
+        source_embeds = self.final_entity_embeddings[batch_inputs[:, 0]]
+        relation_embeds = self.final_relation_embeddings[batch_inputs[:, 1]]
+        tail_embeds = self.final_entity_embeddings[batch_inputs[:, 2]]
+        x = source_embeds + relation_embeds - tail_embeds
+        pos_norm = torch.norm(x, p=1, dim=1)
+        return pos_norm
+
 
 class SpKBGATConvOnly(nn.Module):
     def __init__(self, initial_entity_emb, initial_relation_emb, entity_out_dim, relation_out_dim,
